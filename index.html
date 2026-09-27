@@ -1,526 +1,1465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Revesto Pisos e Revestimentos | Indaiatuba - SP</title>
+
+  <meta
+    name="description"
+    content="Revesto Pisos e Revestimentos. Soluções sofisticadas em porcelanatos, pisos, cerâmicas, pedras e acabamentos para projetos residenciais e comerciais."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --verde: #26302c;
+      --verde-escuro: #202725;
+      --texto: #202725;
+      --texto-suave: #5e6762;
+      --creme: #f5f3ef;
+      --branco: #fbfaf7;
+      --dourado: #c7a674;
+      --dourado-claro: #eadcc5;
+      --borda: #dcded7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--creme);
+      color: var(--texto);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: 82px;
+      background: rgba(251, 250, 247, .94);
+      border-bottom: 1px solid var(--borda);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--verde);
+      color: white;
+      font: 600 21px "Playfair Display", serif;
+    }
+
+    .brand-mark span {
+      color: var(--dourado);
+    }
+
+    .brand strong {
+      display: block;
+      letter-spacing: .16em;
+      font-size: 14px;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 2px;
+      color: var(--texto-suave);
+      font: 500 8px "DM Mono", monospace;
+      letter-spacing: .13em;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .main-nav a {
+      color: var(--texto-suave);
+      font-size: 12px;
+      font-weight: 500;
+      transition: color .2s ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--dourado);
+    }
+
+    .main-nav a:last-child {
+      padding-left: 25px;
+      border-left: 1px solid var(--borda);
+      color: var(--texto);
+    }
+
+    .menu-button {
+      display: none;
+      background: transparent;
+      color: var(--texto);
+      font-size: 25px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 660px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--verde);
+      color: white;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: .12;
+      background-image:
+        linear-gradient(90deg, transparent 49.8%, #e8d9bc 50%, transparent 50.2%),
+        linear-gradient(0deg, transparent 49.8%, #e8d9bc 50%, transparent 50.2%);
+      background-size: 120px 120px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      align-items: end;
+      gap: 80px;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 22px;
+      color: #9b7440;
+      font: 500 10px "DM Mono", monospace;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-light {
+      color: var(--dourado-claro);
+    }
+
+    .eyebrow-light::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--dourado);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      letter-spacing: -.04em;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 1.02;
+    }
+
+    h1 em,
+    h2 em {
+      color: var(--dourado);
+      font-style: italic;
+    }
+
+    .hero-description {
+      max-width: 540px;
+      margin: 31px 0;
+      color: #bdc4bc;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-gold {
+      background: var(--dourado);
+      color: var(--verde-escuro);
+    }
+
+    .button-gold:hover {
+      background: #ddc49b;
+    }
+
+    .hero-link {
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .hero-link:hover {
+      color: var(--dourado);
+    }
+
+    .hero-aside {
+      padding-left: 28px;
+      border-left: 1px solid rgba(234, 220, 197, .4);
+    }
+
+    .hero-index {
+      margin-bottom: 58px;
+      color: var(--dourado);
+      font: 11px "DM Mono", monospace;
+    }
+
+    .hero-index span {
+      margin: 0 5px;
+      color: #718079;
+    }
+
+    .hero-quote {
+      font: 24px/1.25 "Playfair Display", serif;
+    }
+
+    .hero-quote em {
+      color: var(--dourado);
+    }
+
+    .hero-line {
+      width: 45px;
+      height: 1px;
+      margin: 25px 0;
+      background: var(--dourado);
+    }
+
+    .hero-aside p {
+      max-width: 190px;
+      color: #9ba69f;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 27px;
+      left: max(24px, calc((100% - 1160px) / 2));
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #91a098;
+      font: 10px "DM Mono", monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll span {
+      width: 1px;
+      height: 35px;
+      background: var(--dourado);
+    }
+
+    section {
+      scroll-margin-top: 82px;
+    }
+
+    .services {
+      padding: 126px 0;
+      background: var(--creme);
+    }
+
+    .section-heading {
+      margin-bottom: 57px;
+    }
+
+    .split-heading {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      align-items: end;
+      gap: 60px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(42px, 5vw, 65px);
+      line-height: 1.04;
+    }
+
+    .section-heading p {
+      color: var(--texto-suave);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 38px rgba(38, 48, 44, .09);
+    }
+
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 41px;
+      color: var(--dourado);
+      font-size: 25px;
+    }
+
+    .service-number {
+      color: #929a94;
+      font: 11px "DM Mono", monospace;
+    }
+
+    .service-card h3 {
+      margin-bottom: 13px;
+      font-size: 27px;
+    }
+
+    .service-card p {
+      color: var(--texto-suave);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 22px;
+    }
+
+    .tags span {
+      padding: 5px 8px;
+      border: 1px solid var(--borda);
+      color: var(--texto-suave);
+      font: 10px "DM Mono", monospace;
+    }
+
+    .card-link {
+      margin-top: auto;
+      padding-top: 25px;
+      color: var(--texto);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .card-link:hover {
+      color: #9b7440;
+    }
+
+    .about {
+      padding: 116px 0;
+      background: var(--verde);
+      color: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 150px 1fr 250px;
+      align-items: start;
+      gap: 70px;
+    }
+
+    .about-symbol {
+      width: 94px;
+      height: 94px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #819088;
+      border-radius: 50%;
+      font: 43px "Playfair Display", serif;
+    }
+
+    .about-symbol span {
+      color: var(--dourado);
+    }
+
+    .about h2 {
+      margin-bottom: 26px;
+      font-size: clamp(43px, 5vw, 68px);
+      line-height: 1.03;
+    }
+
+    .about p {
+      max-width: 510px;
+      margin-bottom: 26px;
+      color: #b5beb8;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .about-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 31px;
+      padding-left: 28px;
+      border-left: 1px solid #65736b;
+    }
+
+    .about-facts strong {
+      display: block;
+      color: var(--dourado);
+      font: 44px "Playfair Display", serif;
+    }
+
+    .about-facts span {
+      color: #aeb8b1;
+      font: 10px "DM Mono", monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .registration {
+      padding: 126px 0;
+      background: var(--branco);
+    }
+
+    .centered {
+      max-width: 610px;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+    }
+
+    .registration-layout {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      align-items: start;
+      gap: 18px;
+    }
+
+    .status-card {
+      min-height: 390px;
+      padding: 31px;
+      background: var(--verde);
+      color: white;
+    }
+
+    .status-icon {
+      margin-bottom: 55px;
+      color: var(--dourado);
+      font-size: 28px;
+    }
+
+    .status-label {
+      display: block;
+      color: #aeb8b1;
+      font: 10px "DM Mono", monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .status-card strong {
+      display: block;
+      margin: 8px 0;
+      color: #d4e0d4;
+      font: 46px "Playfair Display", serif;
+    }
+
+    .status-card p {
+      color: #aeb8b1;
+      font-size: 12px;
+    }
+
+    .status-line {
+      height: 1px;
+      margin: 56px 0 20px;
+      background: #63716a;
+    }
+
+    .status-cnpj {
+      color: var(--dourado-claro);
+      font: 10px "DM Mono", monospace;
+    }
+
+    .data-table {
+      border-top: 1px solid var(--borda);
+    }
+
+    .data-row {
+      min-height: 51px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 17px;
+      border-bottom: 1px solid var(--borda);
+      font-size: 13px;
+    }
+
+    .data-row span {
+      color: var(--texto-suave);
+    }
+
+    .contact {
+      padding: 125px 0;
+      background: var(--dourado-claro);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 90px;
+    }
+
+    .contact h2 {
+      margin-bottom: 28px;
+      font-size: clamp(42px, 5vw, 65px);
+      line-height: 1.04;
+    }
+
+    .contact-description {
+      max-width: 405px;
+      color: var(--texto-suave);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 42px;
+    }
+
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .contact-links-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #d0b98e;
+      color: #9b7440;
+    }
+
+    .contact-links small {
+      display: block;
+      margin-bottom: 3px;
+      color: #7d796e;
+      font: 10px "DM Mono", monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .contact-links strong {
+      font-size: 13px;
+    }
+
+    .contact-form {
+      padding: 34px;
+      background: var(--branco);
+      border: 1px solid #ded2bd;
+    }
+
+    .form-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 24px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid var(--borda);
+      color: #9b7440;
+    }
+
+    .form-heading h3 {
+      margin-bottom: 3px;
+      color: var(--texto);
+      font-size: 24px;
+    }
+
+    .form-heading p {
+      color: var(--texto-suave);
+      font-size: 11px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 19px;
+      color: var(--texto-suave);
+      font: 500 10px "DM Mono", monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 13px 14px;
+      margin-top: 8px;
+      border: 1px solid var(--borda);
+      outline: none;
+      background: white;
+      color: var(--texto);
+      font: 13px "DM Sans", sans-serif;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--dourado);
+      box-shadow: 0 0 0 3px rgba(199, 166, 116, .16);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--verde);
+      color: white;
+    }
+
+    .form-submit:hover {
+      background: #38433e;
+    }
+
+    .form-note {
+      display: block;
+      margin-top: 17px;
+      color: #7e887f;
+      font-size: 10px;
+    }
+
+    .footer {
+      padding: 68px 0 20px;
+      background: var(--verde-escuro);
+      color: white;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+      gap: 45px;
+      padding-bottom: 58px;
+    }
+
+    .footer-brand .brand-mark {
+      margin-bottom: 20px;
+      background: var(--dourado);
+      color: var(--verde-escuro);
+    }
+
+    .footer-brand p {
+      color: #a7b0aa;
+      font: 13px/1.7 "Playfair Display", serif;
+    }
+
+    .footer-column > span {
+      display: block;
+      margin-bottom: 21px;
+      color: var(--dourado);
+      font: 10px "DM Mono", monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .footer-column a,
+    .footer-column p {
+      display: block;
+      color: #acb5ae;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .footer-column a:hover {
+      color: var(--dourado);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid #46514b;
+      color: #839089;
+      font: 10px "DM Mono", monospace;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        width: min(100% - 32px, 600px);
+      }
+
+      .site-header {
+        height: 70px;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 24px;
+        background: var(--branco);
+        border-bottom: 1px solid var(--borda);
+      }
+
+      .main-nav.active {
+        display: flex;
+      }
+
+      .main-nav a:last-child {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .hero {
+        min-height: 680px;
+        padding: 90px 0 120px;
+      }
+
+      .hero-content {
+        display: block;
+      }
+
+      .hero-aside {
+        margin-top: 70px;
+      }
+
+      .split-heading,
+      .contact-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .services,
+      .registration,
+      .contact {
+        padding: 82px 0;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-symbol {
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+      }
+
+      .about-facts {
+        flex-direction: row;
+        padding: 25px 0 0;
+        border-top: 1px solid #65736b;
+        border-left: 0;
+      }
+
+      .registration-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .status-card {
+        min-height: auto;
+      }
+
+      .data-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 14px 10px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+      }
+
+      .footer-bottom {
+        display: block;
+        line-height: 2;
+      }
+
+      .footer-bottom span {
+        display: block;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-buttons {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 51px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
 <body>
-  <div id="root">
-    <div class="site-shell">
 
-      <header class="site-header">
-        <div class="container header-inner">
-          <a class="brand" href="#inicio">
-            <span class="brand-mark">R<span>.</span></span>
+  <header class="site-header">
+    <div class="container header-inner">
 
-            <span>
-              <strong>REVESTO</strong>
-              <small>PISOS & REVESTIMENTOS</small>
-            </span>
-          </a>
+      <a href="#inicio" class="brand">
+        <span class="brand-mark">R<span>.</span></span>
 
-          <nav class="main-nav">
-            <a href="#servicos">Serviços</a>
-            <a href="#empresa">A empresa</a>
-            <a href="#dados">Dados cadastrais</a>
-            <a href="#contato">Contato</a>
-            <a href="https://revesto.com.br/" target="_blank">
-              Site oficial ↗
+        <span>
+          <strong>REVESTO</strong>
+          <small>PISOS & REVESTIMENTOS</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="mainNavigation">
+        <a href="#servicos">Serviços</a>
+        <a href="#empresa">A empresa</a>
+        <a href="#dados">Dados cadastrais</a>
+        <a href="#contato">Contato</a>
+        <a href="https://revesto.com.br/" target="_blank">
+          Site oficial ↗
+        </a>
+      </nav>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Abrir menu"
+      >
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="inicio">
+      <div class="hero-pattern"></div>
+
+      <div class="container hero-content">
+
+        <div>
+          <span class="eyebrow eyebrow-light">
+            Indaiatuba · São Paulo · Desde 2013
+          </span>
+
+          <h1>
+            O espaço começa<br>
+            pelo <em>chão.</em>
+          </h1>
+
+          <p class="hero-description">
+            Revestimentos escolhidos para dar forma a ambientes que permanecem.
+            Curadoria, qualidade e atenção aos detalhes em cada projeto.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contato" class="button button-gold">
+              Solicitar orçamento ↗
             </a>
-          </nav>
-
-          <button class="menu-toggle" aria-label="Abrir menu">
-            ☰
-          </button>
-        </div>
-      </header>
-
-      <main>
-
-        <section class="hero" id="inicio">
-          <div class="hero-grid-pattern"></div>
-
-          <div class="container hero-content">
-            <div class="hero-copy">
-              <div class="eyebrow light">
-                <span class="eyebrow-dot"></span>
-                Indaiatuba · São Paulo · Desde 2013
-              </div>
-
-              <h1>
-                O espaço começa<br>
-                pelo <em>chão.</em>
-              </h1>
-
-              <p class="hero-intro">
-                Revestimentos escolhidos para dar forma a ambientes que permanecem.
-                Curadoria, qualidade e atenção aos detalhes em cada projeto.
-              </p>
-
-              <div class="hero-actions">
-                <a href="#contato" class="button button-gold">
-                  Solicitar orçamento ↗
-                </a>
-
-                <a
-                  href="https://revesto.com.br/"
-                  target="_blank"
-                  class="text-link light-link"
-                >
-                  Conheça o site oficial ↗
-                </a>
-              </div>
-            </div>
-
-            <div class="hero-aside">
-              <div class="hero-index">01 <span>/</span> 03</div>
-
-              <div class="hero-quote">
-                “A matéria certa<br>
-                <em>transforma tudo.</em>”
-              </div>
-
-              <div class="hero-rule"></div>
-
-              <p>
-                Materiais para projetos residenciais,
-                comerciais e arquitetônicos.
-              </p>
-            </div>
-          </div>
-
-          <div class="hero-scroll">
-            <span></span>
-            Explore
-          </div>
-        </section>
-
-        <section class="service-intro" id="servicos">
-          <div class="container">
-
-            <div class="section-heading split-heading">
-              <div>
-                <span class="eyebrow">O que fazemos</span>
-
-                <h2>
-                  Matéria-prima para<br>
-                  <em>boas ideias.</em>
-                </h2>
-              </div>
-
-              <p>
-                Da escolha do material ao último detalhe, oferecemos
-                soluções que equilibram estética, função e durabilidade.
-              </p>
-            </div>
-
-            <div class="service-grid">
-
-              <article class="service-card">
-                <div class="service-top">
-                  <span class="service-number">01</span>
-                  <span>▱</span>
-                </div>
-
-                <h3>Pisos internos</h3>
-
-                <p>
-                  Soluções para salas, cozinhas, banheiros e áreas sociais
-                  com conforto, resistência e acabamento preciso.
-                </p>
-
-                <div class="tag-list">
-                  <span>Porcelanatos</span>
-                  <span>Cerâmicas</span>
-                  <span>Vinílicos</span>
-                </div>
-
-                <a href="#contato" class="card-link">
-                  Falar sobre este serviço →
-                </a>
-              </article>
-
-              <article class="service-card">
-                <div class="service-top">
-                  <span class="service-number">02</span>
-                  <span>▥</span>
-                </div>
-
-                <h3>Áreas externas</h3>
-
-                <p>
-                  Revestimentos que unem segurança e personalidade para
-                  varandas, quintais, fachadas, piscinas e espaços de convivência.
-                </p>
-
-                <div class="tag-list">
-                  <span>Antiderrapantes</span>
-                  <span>Decks</span>
-                  <span>Pedras</span>
-                </div>
-
-                <a href="#contato" class="card-link">
-                  Falar sobre este serviço →
-                </a>
-              </article>
-
-              <article class="service-card">
-                <div class="service-top">
-                  <span class="service-number">03</span>
-                  <span>✦</span>
-                </div>
-
-                <h3>Acabamentos especiais</h3>
-
-                <p>
-                  Curadoria de materiais e detalhes para criar ambientes
-                  autorais, do clássico atemporal ao contemporâneo.
-                </p>
-
-                <div class="tag-list">
-                  <span>Mármores</span>
-                  <span>Grandes formatos</span>
-                  <span>Texturas</span>
-                </div>
-
-                <a href="#contato" class="card-link">
-                  Falar sobre este serviço →
-                </a>
-              </article>
-
-            </div>
-          </div>
-        </section>
-
-        <section class="statement" id="empresa">
-          <div class="container statement-grid">
-
-            <div class="statement-symbol">
-              R<span>.</span>
-            </div>
-
-            <div>
-              <span class="eyebrow light">Quem é a Revesto</span>
-
-              <h2>
-                Ambientes com<br>
-                <em>identidade.</em>
-              </h2>
-
-              <p>
-                Somos uma empresa de pequeno porte especializada em pisos
-                e revestimentos. Em Indaiatuba desde 2013, combinamos
-                repertório de materiais, atendimento próximo e compromisso
-                com o resultado.
-              </p>
-
-              <a href="#dados" class="text-link light-link">
-                Ver informações da empresa ↗
-              </a>
-            </div>
-
-            <div class="statement-facts">
-              <div>
-                <strong>13+</strong>
-                <span>anos de mercado</span>
-              </div>
-
-              <div>
-                <strong>100%</strong>
-                <span>empresa ativa</span>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <section class="registration" id="dados">
-          <div class="container">
-
-            <div class="section-heading centered">
-              <span class="eyebrow">Transparência</span>
-
-              <h2>
-                Informações de <em>registro.</em>
-              </h2>
-
-              <p>
-                Todos os dados oficiais da Revesto Pisos e Revestimentos LTDA
-                em um só lugar.
-              </p>
-            </div>
-
-            <div class="registration-layout">
-
-              <div class="status-card">
-                <div class="status-icon">✓</div>
-
-                <span class="status-label">
-                  Situação cadastral
-                </span>
-
-                <strong>Ativa</strong>
-
-                <p>
-                  Empresa regular e em funcionamento
-                </p>
-
-                <div class="status-line"></div>
-
-                <span class="status-cnpj">
-                  CNPJ 17.653.952/0001-07
-                </span>
-              </div>
-
-              <div class="data-table">
-
-                <div class="data-row">
-                  <span>CNPJ</span>
-                  <strong>17.653.952/0001-07</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>CNPJ sem pontuação</span>
-                  <strong>17653952000107</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Inscrição Estadual SP</span>
-                  <strong>353.142.381.116</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Razão Social</span>
-                  <strong>
-                    Revesto Pisos e Revestimentos LTDA
-                  </strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Nome Fantasia</span>
-                  <strong>
-                    Revesto Pisos e Revestimentos
-                  </strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Data da abertura</span>
-                  <strong>22/02/2013</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Porte</span>
-                  <strong>Empresa de Pequeno Porte</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Natureza jurídica</span>
-                  <strong>Sociedade Empresária Limitada</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Opção pelo MEI</span>
-                  <strong>Não</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Opção pelo Simples</span>
-                  <strong>Sim — desde 22/02/2013</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Capital social</span>
-                  <strong>R$ 30.000,00</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Tipo</span>
-                  <strong>Matriz</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Situação</span>
-                  <strong>Ativa</strong>
-                </div>
-
-                <div class="data-row">
-                  <span>Data da situação cadastral</span>
-                  <strong>22/02/2013</strong>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="contact" id="contato">
-          <div class="container contact-grid">
-
-            <div class="contact-copy">
-              <span class="eyebrow">Vamos conversar</span>
-
-              <h2>
-                Seu próximo<br>
-                <em>ambiente começa aqui.</em>
-              </h2>
-
-              <p>
-                Conte um pouco sobre o seu projeto. Nossa equipe retorna
-                pelos canais oficiais para entender o que você precisa.
-              </p>
-
-              <div class="contact-links">
-
-                <a href="tel:1939350363">
-                  <span>☎</span>
-                  <div>
-                    <small>Telefone</small>
-                    <strong>(19) 3935-0363</strong>
-                  </div>
-                </a>
-
-                <a href="mailto:administrativo@revesto.com.br">
-                  <span>✉</span>
-                  <div>
-                    <small>E-mail</small>
-                    <strong>administrativo@revesto.com.br</strong>
-                  </div>
-                </a>
-
-                <a
-                  href="https://wa.me/551939350363"
-                  target="_blank"
-                >
-                  <span>◉</span>
-                  <div>
-                    <small>Atendimento</small>
-                    <strong>Fale pelo WhatsApp ↗</strong>
-                  </div>
-                </a>
-
-              </div>
-            </div>
-
-            <form
-              class="contact-form"
-              action="mailto:administrativo@revesto.com.br"
-              method="post"
-              enctype="text/plain"
-            >
-              <div class="form-heading">
-                <span>▣</span>
-
-                <div>
-                  <h3>Solicite um orçamento</h3>
-                  <p>Campos com * são obrigatórios.</p>
-                </div>
-              </div>
-
-              <label>
-                Nome completo *
-                <input
-                  type="text"
-                  name="nome"
-                  placeholder="Como podemos chamar você?"
-                  required
-                >
-              </label>
-
-              <div class="form-row">
-                <label>
-                  E-mail *
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="seu@email.com"
-                    required
-                  >
-                </label>
-
-                <label>
-                  Telefone *
-                  <input
-                    type="text"
-                    name="telefone"
-                    placeholder="(19) 00000-0000"
-                    required
-                  >
-                </label>
-              </div>
-
-              <label>
-                Fale sobre seu projeto
-                <textarea
-                  name="mensagem"
-                  rows="4"
-                  placeholder="Tipo de ambiente, metragem, prazo..."
-                ></textarea>
-              </label>
-
-              <button
-                class="button button-dark form-submit"
-                type="submit"
-              >
-                Enviar solicitação →
-              </button>
-
-              <small class="form-note">
-                ✓ Seus dados são usados somente para este atendimento.
-              </small>
-            </form>
-
-          </div>
-        </section>
-
-      </main>
-
-      <footer class="site-footer">
-        <div class="container footer-top">
-
-          <div class="footer-brand">
-            <div class="brand-mark">R<span>.</span></div>
-
-            <p>
-              Pisos e revestimentos<br>
-              para espaços com identidade.
-            </p>
-          </div>
-
-          <div class="footer-column">
-            <span>Atalhos</span>
-            <a href="#servicos">Serviços</a>
-            <a href="#dados">Dados cadastrais</a>
-            <a href="#contato">Contato</a>
-          </div>
-
-          <div class="footer-column">
-            <span>Endereço</span>
-
-            <p>
-              Rua Prata, 113<br>
-              Recreio Campestre Joia<br>
-              Indaiatuba — SP · 13347-010
-            </p>
-          </div>
-
-          <div class="footer-column footer-official">
-            <span>Portal oficial</span>
 
             <a
               href="https://revesto.com.br/"
               target="_blank"
+              class="hero-link"
             >
-              revesto.com.br ↗
+              Conheça o site oficial ↗
             </a>
           </div>
-
         </div>
 
-        <div class="container footer-bottom">
-          <span>
-            © 2026 Revesto Pisos e Revestimentos LTDA
+        <div class="hero-aside">
+          <div class="hero-index">
+            01 <span>/</span> 03
+          </div>
+
+          <div class="hero-quote">
+            “A matéria certa<br>
+            <em>transforma tudo.</em>”
+          </div>
+
+          <div class="hero-line"></div>
+
+          <p>
+            Materiais para projetos residenciais,
+            comerciais e arquitetônicos.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hero-scroll">
+        <span></span>
+        Explore
+      </div>
+    </section>
+
+    <section class="services" id="servicos">
+      <div class="container">
+
+        <div class="section-heading split-heading">
+          <div>
+            <span class="eyebrow">O que fazemos</span>
+
+            <h2>
+              Matéria-prima para<br>
+              <em>boas ideias.</em>
+            </h2>
+          </div>
+
+          <p>
+            Da escolha do material ao último detalhe, oferecemos soluções
+            que equilibram estética, função e durabilidade.
+          </p>
+        </div>
+
+        <div class="service-grid">
+
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-number">01</span>
+              <span>▱</span>
+            </div>
+
+            <h3>Pisos internos</h3>
+
+            <p>
+              Soluções para salas, cozinhas, banheiros e áreas sociais com
+              conforto, resistência e acabamento preciso.
+            </p>
+
+            <div class="tags">
+              <span>Porcelanatos</span>
+              <span>Cerâmicas</span>
+              <span>Vinílicos</span>
+            </div>
+
+            <a href="#contato" class="card-link">
+              Falar sobre este serviço →
+            </a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-number">02</span>
+              <span>▥</span>
+            </div>
+
+            <h3>Áreas externas</h3>
+
+            <p>
+              Revestimentos que unem segurança e personalidade para varandas,
+              quintais, fachadas, piscinas e espaços de convivência.
+            </p>
+
+            <div class="tags">
+              <span>Antiderrapantes</span>
+              <span>Decks</span>
+              <span>Pedras</span>
+            </div>
+
+            <a href="#contato" class="card-link">
+              Falar sobre este serviço →
+            </a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-number">03</span>
+              <span>✦</span>
+            </div>
+
+            <h3>Acabamentos especiais</h3>
+
+            <p>
+              Curadoria de materiais e detalhes para criar ambientes autorais,
+              do clássico atemporal ao contemporâneo.
+            </p>
+
+            <div class="tags">
+              <span>Mármores</span>
+              <span>Grandes formatos</span>
+              <span>Texturas</span>
+            </div>
+
+            <a href="#contato" class="card-link">
+              Falar sobre este serviço →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="empresa">
+      <div class="container about-grid">
+
+        <div class="about-symbol">
+          R<span>.</span>
+        </div>
+
+        <div>
+          <span class="eyebrow eyebrow-light">
+            Quem é a Revesto
           </span>
 
-          <span>
-            CNPJ 17.653.952/0001-07 · Matriz
-          </span>
+          <h2>
+            Ambientes com<br>
+            <em>identidade.</em>
+          </h2>
+
+          <p>
+            Somos uma empresa de pequeno porte especializada em pisos e
+            revestimentos. Em Indaiatuba desde 2013, combinamos repertório
+            de materiais, atendimento próximo e compromisso com o resultado.
+          </p>
+
+          <a href="#dados" class="hero-link">
+            Ver informações da empresa ↗
+          </a>
         </div>
-      </footer>
+
+        <div class="about-facts">
+          <div>
+            <strong>13+</strong>
+            <span>anos de mercado</span>
+          </div>
+
+          <div>
+            <strong>100%</strong>
+            <span>empresa ativa</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="registration" id="dados">
+      <div class="container">
+
+        <div class="section-heading centered">
+          <span class="eyebrow">Transparência</span>
+
+          <h2>
+            Informações de <em>registro.</em>
+          </h2>
+
+          <p>
+            Todos os dados oficiais da Revesto Pisos e Revestimentos LTDA
+            em um só lugar.
+          </p>
+        </div>
+
+        <div class="registration-layout">
+
+          <div class="status-card">
+            <div class="status-icon">✓</div>
+
+            <span class="status-label">
+              Situação cadastral
+            </span>
+
+            <strong>Ativa</strong>
+
+            <p>
+              Empresa regular e em funcionamento
+            </p>
+
+            <div class="status-line"></div>
+
+            <span class="status-cnpj">
+              CNPJ 17.653.952/0001-07
+            </span>
+          </div>
+
+          <div class="data-table">
+
+            <div class="data-row">
+              <span>CNPJ</span>
+              <strong>17.653.952/0001-07</strong>
+            </div>
+
+            <div class="data-row">
+              <span>CNPJ sem pontuação</span>
+              <strong>17653952000107</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Inscrição Estadual SP</span>
+              <strong>353.142.381.116</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Razão Social</span>
+              <strong>Revesto Pisos e Revestimentos LTDA</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Nome Fantasia</span>
+              <strong>Revesto Pisos e Revestimentos</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Data da abertura</span>
+              <strong>22/02/2013</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Porte</span>
+              <strong>Empresa de Pequeno Porte</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Natureza jurídica</span>
+              <strong>Sociedade Empresária Limitada</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Opção pelo MEI</span>
+              <strong>Não</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Opção pelo Simples</span>
+              <strong>Sim — desde 22/02/2013</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Capital social</span>
+              <strong>R$ 30.000,00</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Tipo</span>
+              <strong>Matriz</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Situação</span>
+              <strong>Ativa</strong>
+            </div>
+
+            <div class="data-row">
+              <span>Data da situação cadastral</span>
+              <strong>22/02/2013</strong>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container contact-grid">
+
+        <div>
+          <span class="eyebrow">Vamos conversar</span>
+
+          <h2>
+            Seu próximo<br>
+            <em>ambiente começa aqui.</em>
+          </h2>
+
+          <p class="contact-description">
+            Conte um pouco sobre o seu projeto. Nossa equipe retorna pelos
+            canais oficiais para entender o que você precisa.
+          </p>
+
+          <div class="contact-links">
+
+            <a href="tel:1939350363">
+              <span class="contact-links-icon">☎</span>
+
+              <div>
+                <small>Telefone</small>
+                <strong>(19) 3935-0363</strong>
+              </div>
+            </a>
+
+            <a href="mailto:administrativo@revesto.com.br">
+              <span class="contact-links-icon">✉</span>
+
+              <div>
+                <small>E-mail</small>
+                <strong>administrativo@revesto.com.br</strong>
+              </div>
+            </a>
+
+            <a
+              href="https://wa.me/551939350363"
+              target="_blank"
+            >
+              <span class="contact-links-icon">◉</span>
+
+              <div>
+                <small>Atendimento</small>
+                <strong>Fale pelo WhatsApp ↗</strong>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <form
+          class="contact-form"
+          action="mailto:administrativo@revesto.com.br"
+          method="post"
+          enctype="text/plain"
+        >
+
+          <div class="form-heading">
+            <span>▣</span>
+
+            <div>
+              <h3>Solicite um orçamento</h3>
+              <p>Campos com * são obrigatórios.</p>
+            </div>
+          </div>
+
+          <label>
+            Nome completo *
+
+            <input
+              type="text"
+              name="nome"
+              placeholder="Como podemos chamar você?"
+              required
+            >
+          </label>
+
+          <div class="form-row">
+            <label>
+              E-mail *
+
+              <input
+                type="email"
+                name="email"
+                placeholder="seu@email.com"
+                required
+              >
+            </label>
+
+            <label>
+              Telefone *
+
+              <input
+                type="text"
+                name="telefone"
+                placeholder="(19) 00000-0000"
+                required
+              >
+            </label>
+          </div>
+
+          <label>
+            Fale sobre seu projeto
+
+            <textarea
+              name="mensagem"
+              rows="4"
+              placeholder="Tipo de ambiente, metragem, prazo..."
+            ></textarea>
+          </label>
+
+          <button
+            class="button form-submit"
+            type="submit"
+          >
+            Enviar solicitação →
+          </button>
+
+          <small class="form-note">
+            ✓ Seus dados são usados somente para este atendimento.
+          </small>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-top">
+
+      <div class="footer-brand">
+        <div class="brand-mark">
+          R<span>.</span>
+        </div>
+
+        <p>
+          Pisos e revestimentos<br>
+          para espaços com identidade.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <span>Atalhos</span>
+        <a href="#servicos">Serviços</a>
+        <a href="#dados">Dados cadastrais</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <div class="footer-column">
+        <span>Endereço</span>
+
+        <p>
+          Rua Prata, 113<br>
+          Recreio Campestre Joia<br>
+          Indaiatuba — SP · 13347-010
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <span>Portal oficial</span>
+
+        <a
+          href="https://revesto.com.br/"
+          target="_blank"
+        >
+          revesto.com.br ↗
+        </a>
+      </div>
 
     </div>
-  </div>
+
+    <div class="container footer-bottom">
+      <span>
+        © 2026 Revesto Pisos e Revestimentos LTDA
+      </span>
+
+      <span>
+        CNPJ 17.653.952/0001-07 · Matriz
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navigation = document.getElementById("mainNavigation");
+
+    menuButton.addEventListener("click", function () {
+      navigation.classList.toggle("active");
+
+      if (navigation.classList.contains("active")) {
+        menuButton.textContent = "×";
+      } else {
+        menuButton.textContent = "☰";
+      }
+    });
+
+    document.querySelectorAll(".main-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navigation.classList.remove("active");
+        menuButton.textContent = "☰";
+      });
+    });
+  </script>
+
 </body>
+</html>
